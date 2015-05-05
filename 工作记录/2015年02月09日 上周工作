@@ -1,0 +1,13 @@
+2015年02月09日 上周工作
+	1、locations list body corportate no display question. 以主题公司身份登陆，不可以显示点位列表
+	2、navigation no display add locations option 导航不显示和点位详情中得list tr 值的修改.
+	3、in https://app.imonnetwork.com use imonadmin login no display locations list data
+	4、 Repair the mobile phone screen each row spacing 修复了手机屏幕每行的间距
+	5、 Repair the body corporate mobile phone screen display problems 修复了body corporate 手机屏幕的显示问题
+	6、http://gerrit.imon.local/issues/633 可以修改了小问题描述的很详细了。提交在旧的gerrit上面 http://gerrit.imon.local8080/#/c/1775/
+	7、http://gerrit.imon.local/issues/645 自适应图片的问题描述的很详细了有空加一下就成 http://gerrit.imon.local:8080/#/c/1776/
+	8、http://gerrit.imon.local/issues/646 这个是中文表格字符大表格变形了详细的描述在里面应该不是很紧急可以最后改。
+	9、This is commit ready to be test.I have fixed hard url problem in user module
+	10、完成了部分数据库的字段索引收集。
+本周工作计划
+	1、继续上周的数据库字段索引的收集

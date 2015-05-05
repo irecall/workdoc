@@ -1,0 +1,62 @@
+[myriaDb 文件配置]
+#开启mariaDb slow 查询记录和未使用索引的记录
+#version 10.0.14-MariaDB-1~precise-log
+
+	my.cnf
+
+	    [mysqld]
+
+	    slow-query-log = on # 开启慢查询这个功能
+
+	    slow_query_log_file = /var/lib/mysql/mariadb-slow.log # 慢查询日志存放路径与名称
+
+	    long_query_time = 5 # 查询时间超过5s的查询语句
+
+	    log-queries-not-using-indexes = on # 列出没有使用索引的查询语句
+
+[mariaDb 常用终端查询语句]
+1、查询是否开启slow_query
+	show variables like 'slow%'
+2、查看慢查询临界时间值
+	show variables like '%long_query_time%'
+
+#server config
+	ssh serveradmin@192.168.1.200 
+	password = 'password'
+
+#查看mysql慢查询日志方法
+1、持续监控
+tail -f /var/log/mysql/mariadb-slow.log  
+2、vi 查看
+vi /var/log/mysql/mariadb-slow.log  
+
+
+
+[mysqlsla 分析工具]
+
+mysqlsla -lt udl  -sf "+select" -top 1000  mariadb-slow.log  
+
+#分析前提：我们现在的log日志主要记录了慢查询语句超过5秒和没有加索引的语句
+
+#-lt udl 是统计普通语句的  统计慢查询把udl 换成slow 即可
+#-top 1000 是显示排序最前的N条报告
+#-sf "+select" 只分析查询语句
+#mariadb-slow.log 分析的目标日志文件
+
+[mariaDb 慢查询log分析]
+
+# User@Host: george[george] @  [192.168.1.210]
+# Thread_id: 2810  Schema: redfox_dev  QC_hit: No
+# Query_time: 0.000174  Lock_time: 0.000045  Rows_sent: 0  Rows_examined: 26
+# Full_scan: Yes  Full_join: No  Tmp_table: No  Tmp_table_on_disk: No
+# Filesort: No  Filesort_on_disk: No  Merge_passes: 0  Priority_queue: No
+SET timestamp=1422558882;
+SELECT `CRM_discountApplied`.* FROM `CRM_discountApplied` WHERE `CRM_userCompanyDetails_id` = 127 AND `expiry` = '0000-00-00 00:00:00' ORDER BY `id` DESC;
+
+#第一行,执行SQL查询的连接信息
+#第二行,执行任务线程和数据库信息
+#第三行记录了一些我们比较有用的信息
+#Query_time SQL执行的时间,越长则越慢
+#Lock_time 在MySQL服务器阶段(不是在存储引擎阶段)等待表锁时间
+#Rows_sent 查询返回的行数
+#Rows_examined 查询检查的行数

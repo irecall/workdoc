@@ -1,0 +1,82 @@
+Last login: Mon Nov 24 09:43:27 on ttys000
+ted:~ computer1$ ssh root@103.31.2.118
+The authenticity of host '103.31.2.118 (103.31.2.118)' can't be established.
+RSA key fingerprint is 39:09:62:35:50:b5:03:db:6c:ff:31:0e:d5:21:38:c8.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '103.31.2.118' (RSA) to the list of known hosts.
+root@103.31.2.118's password: 
+Last login: Sun Nov 23 20:28:15 2014 from 114.255.88.6
+[root@localhost ~]# cd /alidata/
+[root@localhost alidata]# cd www
+[root@localhost www]# cd default
+[root@localhost default]# ls
+admin                 certi.php              includes        quotation.php
+affiche.php           chinabank_receive.php  index.html      receive.php
+affiliate.php         comment.php            index.php       region.php
+alipay.html           compare.php            js              respond.php
+animated_favicon.gif  cycle_image.php        languages       robots.txt
+api                   data                   lib_sms.php     search.php
+api.php               exchange.php           message.php     sms.php
+article_cat.php       feed.php               mobile          static
+article.php           flow.php               myship.php      temp
+brand.php             gallery.php            payfail.php     themes
+captcha.php           goods.php              paysuccess.php  user.php
+cart.php              goods_quick_view.php   phpmyadmin      wap
+catalog.php           goods_script.php       pick_out.php    wechat
+category.php          htaccess.txt           plugins         widget
+cert                  images                 pm.php
+[root@localhost default]# cd phpmyadmin/
+[root@localhost phpmyadmin]# ls
+browse_foreigners.php  navigation.php               setup
+ChangeLog              phpinfo.php                  show_config_errors.php
+changelog.php          phpmyadmin.css.php           sql.php
+chk_rel.php            phpunit.xml.nocoverage       tbl_addfield.php
+composer.json          pmd_display_field.php        tbl_change.php
+config.sample.inc.php  pmd_general.php              tbl_chart.php
+CONTRIBUTING.md        pmd_pdf.php                  tbl_create.php
+db_create.php          pmd_relation_new.php         tbl_export.php
+db_datadict.php        pmd_relation_upd.php         tbl_find_replace.php
+db_events.php          pmd_save_pos.php             tbl_get_field.php
+db_export.php          prefs_forms.php              tbl_gis_visualization.php
+db_import.php          prefs_manage.php             tbl_import.php
+db_operations.php      print.css                    tbl_indexes.php
+db_printview.php       querywindow.php              tbl_move_copy.php
+db_qbe.php             README                       tbl_operations.php
+db_routines.php        RELEASE-DATE-4.1.8           tbl_printview.php
+db_search.php          robots.txt                   tbl_relation.php
+db_sql.php             schema_edit.php              tbl_replace.php
+db_structure.php       schema_export.php            tbl_row_action.php
+db_tracking.php        server_binlog.php            tbl_select.php
+db_triggers.php        server_collations.php        tbl_sql.php
+doc                    server_databases.php         tbl_structure.php
+error_report.php       server_engines.php           tbl_tracking.php
+examples               server_export.php            tbl_triggers.php
+export.php             server_import.php            tbl_zoom_select.php
+favicon.ico            server_plugins.php           themes
+file_echo.php          server_privileges.php        themes.php
+gis_data_editor.php    server_replication.php       transformation_overview.php
+import.php             server_sql.php               transformation_wrapper.php
+import_status.php      server_status_advisor.php    url.php
+index.php              server_status_monitor.php    user_password.php
+js                     server_status.php            version_check.php
+libraries              server_status_queries.php    view_create.php
+LICENSE                server_status_variables.php  view_operations.php
+license.php            server_user_groups.php       webapp.php
+locale                 server_variables.php
+[root@localhost phpmyadmin]# cd ..
+[root@localhost default]# vi phpinfo
+[root@localhost default]# 
+[root@localhost default]# vi phpinfo.php
+
+<?php
+        echo phpinfo();
+?>
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+~                                                                               
+-- INSERT --

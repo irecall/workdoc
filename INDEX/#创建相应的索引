@@ -1,0 +1,51 @@
+#创建相应的索引
+CREATE INDEX index_CRM_userPermissions_id ON CRM_userRolePermissions (CRM_userPermissions_id);
+CREATE INDEX index_CRM_userRoles_id ON CRM_userRolePermissions (CRM_userRoles_id);
+CREATE INDEX index_location_id ON LCDScreen (location_id);
+CREATE INDEX index_CRM_userCompanyDetails_id ON LCDScreen (CRM_userCompanyDetails_id);
+CREATE INDEX index_LCDTimes_id ON LCDTimesSaved (LCDTimes_id);
+CREATE INDEX index_LCDScreen_id ON LCDScreenTimes (LCDScreen_id);
+CREATE INDEX index_LCDScreen_id ON report_campaignHistory (LCDScreen_id);
+CREATE INDEX index_CRM_campaignProposed_id ON CRM_campaignSelectedMedia (CRM_campaignProposed_id);
+CREATE INDEX index_cityTable_id ON CRM_CFDValues (cityTable_id);
+CREATE INDEX index_cityTable_id ON CRM_MCbasePrice (cityTable_id);
+CREATE INDEX index_LCDScreen_id ON CRM_campaignSelectedScreens (LCDScreen_id);
+CREATE INDEX index_CRM_campaignProposed_id ON CRM_campaignSelectedScreens (CRM_campaignProposed_id);
+CREATE INDEX index_LCDScreen_id ON LCDScreenPricesAssigned (LCDScreen_id);
+CREATE INDEX index_LCDScreen_id ON LCDScreenTimeRemaining (LCDScreen_id);
+CREATE INDEX index_userName ON CRM_userTable (userName);
+CREATE INDEX index_locations_id ON locationContact (locations_id);
+CREATE INDEX index_locationBodyCorporate_id ON locationContact (locationBodyCorporate_id);
+CREATE INDEX index_CRM_campaignProposed_id ON campaignProPosedLocationSubCategory (CRM_campaignProposed_id);
+CREATE INDEX index_sponsorMedia_id ON sponsorMediaAlbumContent (sponsorMedia_id);
+CREATE INDEX index_expiryDate ON CRM_iMONRecommendedBasePrice (expiryDate);
+ALTER TABLE sponsorMedia ADD INDEX Group_index_TypeAndApproved (approved,type); 
+CREATE INDEX index_provinceTable_id ON cityTable (provinceTable_id);
+CREATE INDEX index_CRM_campaignProposed_id ON CRM_campaignCityData (CRM_campaignProposed_id);
+
+========================================================================================================================================================
+#删除sql 索引
+
+DROP INDEX GROUP_INDEX_TypeAndApproved ON sponsorMedia;
+DROP INDEX index_CRM_userPermissions_id ON CRM_userRolePermissions;
+DROP INDEX index_CRM_userRoles_id ON CRM_userRolePermissions;
+DROP INDEX index_location_id ON LCDScreen;
+DROP INDEX index_CRM_userCompanyDetails_id ON LCDScreen;
+DROP INDEX index_LCDTimes_id ON LCDTimesSaved;
+DROP INDEX index_LCDScreen_id ON LCDScreenTimes;
+DROP INDEX index_LCDScreen_id ON report_campaignHistory;
+DROP INDEX index_CRM_campaignProposed_id ON CRM_campaignSelectedMedia;
+DROP INDEX index_cityTable_id ON CRM_CFDValues;
+DROP INDEX index_cityTable_id ON CRM_MCbasePrice;
+DROP INDEX index_LCDScreen_id ON CRM_campaignSelectedScreens;
+DROP INDEX index_CRM_campaignProposed_id ON CRM_campaignSelectedScreens;
+DROP INDEX index_LCDScreen_id ON LCDScreenPricesAssigned;
+DROP INDEX index_LCDScreen_id ON LCDScreenTimeRemaining;
+DROP INDEX index_userName ON CRM_userTable;
+DROP INDEX index_locations_id ON locationContact;
+DROP INDEX index_locationBodyCorporate_id ON locationContact;
+DROP INDEX index_CRM_campaignProposed_id ON campaignProPosedLocationSubCategory;
+DROP INDEX index_sponsorMedia_id ON sponsorMediaAlbumContent;
+DROP INDEX index_expiryDate ON CRM_iMONRecommendedBasePrice;
+DROP INDEX index_provinceTable_id ON cityTable;
+DROP INDEX index_CRM_campaignProposed_id ON CRM_campaignCityData;

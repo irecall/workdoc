@@ -1,0 +1,235 @@
+
+/*
+	上传媒体图片并提交审核
+*/
+
+
+Remote Address:192.168.1.207:80
+Request URL:http://zend.ted.imon.local/zh/mediaVault/client/0/saveUpload
+Request Method:POST
+Status Code:200 OK
+Request Headersview source
+Accept:application/json, text/javascript, */*; q=0.01
+Accept-Encoding:gzip, deflate
+Accept-Language:zh-CN,zh;q=0.8
+Connection:keep-alive
+Content-Length:1807
+Content-Type:multipart/form-data; boundary=----WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Cookie:PHPSESSID=6tdtg5fkub7v9bvvuaacbq5ak6
+DNT:1
+Host:zend.ted.imon.local
+Origin:http://zend.ted.imon.local
+Referer:http://zend.ted.imon.local/zh/mediaVault/client/upload
+User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+X-Requested-With:XMLHttpRequest
+Request Payload
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="sponsorDetails_id"
+
+282
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="sponsorMediaCategories_id"
+
+3
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="title"
+
+test media image
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="description"
+
+test media image
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="metatag"
+
+12,123
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="rotation"
+
+270
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="resolutionWidth"
+
+1280
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="resolutionHeight"
+
+720
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="length"
+
+
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="filePath"
+
+./public/data/1417665148.jpg
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="type"
+
+1
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="thumbPath"
+
+
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="result"
+
+{"title":"test media image","description":"test media image","metatag":"12,123","sponsorMediaCategories_id":"3","CRM_userCompanyDetails_id":"282","resolutionWidth":"1280","resolutionHeight":"720","length":"","filePath":"./public/data/1417665148.jpg","type":"1","thumbPath":"","rotation":"270"}
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa
+Content-Disposition: form-data; name="thumbArray"
+
+["/data/1417665148.jpg"]
+------WebKitFormBoundaryeCvyrTLjQCDGGOSa--
+Response Headersview source
+Cache-Control:no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Connection:Keep-Alive
+Content-Length:12
+Content-Type:application/json; charset=utf-8
+Date:Thu, 04 Dec 2014 03:53:59 GMT
+Expires:Thu, 19 Nov 1981 08:52:00 GMT
+Keep-Alive:timeout=5, max=98
+Pragma:no-cache
+Server:Apache/2.2.22 (Unix) DAV/2 PHP/5.5.18 mod_ssl/2.2.22 OpenSSL/0.9.8r
+X-Powered-By:PHP/5.5.18
+
+
+res: "ok"
+
+
+
+Remote Address:192.168.1.207:80
+Request URL:http://zend.ted.imon.local/zh/mediaVault/client/0/saveUpload
+Request Method:POST
+Status Code:200 OK
+Request Headersview source
+Accept:application/json, text/javascript, */*; q=0.01
+Accept-Encoding:gzip, deflate
+Accept-Language:zh-CN,zh;q=0.8
+Connection:keep-alive
+Content-Length:1769
+Content-Type:multipart/form-data; boundary=----WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Cookie:PHPSESSID=6tdtg5fkub7v9bvvuaacbq5ak6
+DNT:1
+Host:zend.ted.imon.local
+Origin:http://zend.ted.imon.local
+Referer:http://zend.ted.imon.local/zh/mediaVault/client/upload
+User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+X-Requested-With:XMLHttpRequest
+Request Payload
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="sponsorDetails_id"
+
+282
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="sponsorMediaCategories_id"
+
+10
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="title"
+
+ceshi 2
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="description"
+
+ceshi 2
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="metatag"
+
+ceshi2
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="rotation"
+
+0
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="resolutionWidth"
+
+1280
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="resolutionHeight"
+
+720
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="length"
+
+
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="filePath"
+
+./public/data/1417669441.jpg
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="type"
+
+1
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="thumbPath"
+
+
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="result"
+
+{"title":"ceshi 2","description":"ceshi 2","metatag":"ceshi2","sponsorMediaCategories_id":"10","CRM_userCompanyDetails_id":"282","resolutionWidth":"1280","resolutionHeight":"720","length":"","filePath":"./public/data/1417669441.jpg","type":"1","thumbPath":"","rotation":"0"}
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd
+Content-Disposition: form-data; name="thumbArray"
+
+["/data/1417669441.jpg"]
+------WebKitFormBoundaryAG8dlGkz7cMw8zhd--
+Response Headersview source
+Cache-Control:no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Connection:Keep-Alive
+Content-Length:12
+Content-Type:application/json; charset=utf-8
+Date:Thu, 04 Dec 2014 05:06:14 GMT
+Expires:Thu, 19 Nov 1981 08:52:00 GMT
+Keep-Alive:timeout=5, max=96
+Pragma:no-cache
+Server:Apache/2.2.22 (Unix) DAV/2 PHP/5.5.18 mod_ssl/2.2.22 OpenSSL/0.9.8r
+X-Powered-By:PHP/5.5.18
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+Remote Address:192.168.1.207:80
+Request URL:http://zend.ted.imon.local/zh/mediaVault/client/checkmedia?id=1
+Request Method:POST
+Status Code:200 OK
+Request Headersview source
+Accept:*/*
+Accept-Encoding:gzip, deflate
+Accept-Language:zh-CN,zh;q=0.8
+Connection:keep-alive
+Content-Length:159227
+Content-Type:multipart/form-data; boundary=----WebKitFormBoundaryVPuzoxLODd1LHGZ7
+Cookie:PHPSESSID=6tdtg5fkub7v9bvvuaacbq5ak6
+DNT:1
+Host:zend.ted.imon.local
+Origin:http://zend.ted.imon.local
+Referer:http://zend.ted.imon.local/zh/mediaVault/client/upload
+User-Agent:Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36
+Query String Parametersview sourceview URL encoded
+id:1
+Request Payload
+------WebKitFormBoundaryVPuzoxLODd1LHGZ7
+Content-Disposition: form-data; name="file_name1"; filename="b44e17dfcd3067a1892f373dbb58f79d.jpg"
+Content-Type: image/jpeg
+
+
+------WebKitFormBoundaryVPuzoxLODd1LHGZ7--
+Response Headersview source
+Cache-Control:no-store, no-cache, must-revalidate, post-check=0, pre-check=0
+Connection:Keep-Alive
+Content-Length:175
+Content-Type:application/json; charset=utf-8
+Date:Thu, 04 Dec 2014 05:04:01 GMT
+Expires:Thu, 19 Nov 1981 08:52:00 GMT
+Keep-Alive:timeout=5, max=92
+Pragma:no-cache
+Server:Apache/2.2.22 (Unix) DAV/2 PHP/5.5.18 mod_ssl/2.2.22 OpenSSL/0.9.8r
+X-Powered-By:PHP/5.5.18
+
+
+back_info: ""
+dur: ""
+media_type: 1
+resolutionHeight: 720
+resolutionWidth: 1280
+src: "/data/1417669441.jpg"
+thumb: ""
+uploadfile: "./public/data/1417669441.jpg"

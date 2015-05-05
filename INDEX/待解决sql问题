@@ -1,0 +1,41 @@
+待解决问题
+______________________________________________________________________ 016 ___
+Count         : 64 (0.46%)
+Database      : 
+
+Query abstract:
+SELECT sm.description AS description, sm.title AS title, sm.resolutionwidth AS resolution, sm.resolutionheight AS resolutionheight, sm.filepath AS filepath, sm.metatag AS metatag, sm.approved AS approved, sm.length AS length, sm.id AS mid, sm.used AS used, sm.thumbpath AS thumbpath, sm.originalthumbpath AS originalthumbpath, sm.uploaddatetime AS upload_date, sm.deleted AS deleted FROM sponsormedia AS sm LEFT JOIN sponsormediaalbumcontent AS ac ON ac.sponsormedia_id=sm.id WHERE sm.id IN (SELECT cs.sponsormedia_id AS sponsormedia_id FROM crm_campaignselectedmedia AS cs LEFT JOIN crm_campaignproposed AS c ON c.id = cs.crm_campaignproposed_id LEFT JOIN sponsormedia AS m ON m.id = cs.sponsormedia_id LEFT JOIN sponsormediaalbumcontent AS sc ON sc.sponsormedia_id = m.id WHERE UNIX_TIMESTAMP(c.enddate)>UNIX_TIMESTAMP(now()) AND sc.sponsormediaalbums_id = N) OR (sm.deleted = N AND ac.sponsormediaalbums_id = N);
+
+Query sample:
+SELECT `sm`.`description` AS `description`, `sm`.`title` AS `title`, `sm`.`resolutionWidth` AS `resolution`, `sm`.`resolutionHeight` AS `resolutionHeight`, `sm`.`filePath` AS `filePath`, `sm`.`metatag` AS `metatag`, `sm`.`approved` AS `approved`, `sm`.`length` AS `length`, `sm`.`id` AS `mid`, `sm`.`used` AS `used`, `sm`.`thumbPath` AS `thumbPath`, `sm`.`originalThumbPath` AS `originalThumbPath`, `sm`.`uploadDateTime` AS `upload_date`, `sm`.`deleted` AS `deleted` FROM `sponsorMedia` AS `sm` LEFT JOIN `sponsorMediaAlbumContent` AS `ac` ON `ac`.`sponsorMedia_id`=`sm`.`id` WHERE `sm`.`id` IN (SELECT `cs`.`sponsorMedia_id` AS `sponsorMedia_id` FROM `CRM_campaignSelectedMedia` AS `cs` LEFT JOIN `CRM_campaignProposed` AS `c` ON `c`.`id` = `cs`.`CRM_campaignProposed_id` LEFT JOIN `sponsorMedia` AS `m` ON `m`.`id` = `cs`.`sponsorMedia_id` LEFT JOIN `sponsorMediaAlbumContent` AS `sc` ON `sc`.`sponsorMedia_id` = `m`.`id` WHERE UNIX_TIMESTAMP(c.`endDate`)>UNIX_TIMESTAMP(NOW()) AND `sc`.`sponsorMediaAlbums_id` = 0) OR (`sm`.`deleted` = 0 AND `ac`.`sponsorMediaAlbums_id` = 0);
+
+
+2、 [detail]		？？？？？？？？？？？？？？？？？？？？
+		Count         : 2  (50.00%)
+		Time          : 60.295576 s total, 30.147788 s avg, 6.479841 s to 53.815735 s max  (83.98%)
+		Lock Time     : 0 total, 0 avg, 0 to 0 max  (0.00%)
+		Rows sent     : 3.08k avg, 3.08k to 3.08k max  (99.97%)
+		Rows examined : 0 avg, 0 to 0 max  (0.00%)
+		Database      : redfox_dev
+		Users         : 
+			george@ 192.168.1.217 : 100.00% (2) of query, 50.00% (2) of all users
+
+
+
+		Query abstract:
+		SELECT crm_translatormessages.message_key AS message_key, crm_translatormessages.message_translation AS message_translation, crm_translatormessages.message_plural_index AS message_plural_index FROM crm_translatormessages WHERE locale_id = 'S' AND message_domain = 'S';
+
+		Query sample:
+		SELECT `CRM_translatorMessages`.`message_key` AS `message_key`, `CRM_translatorMessages`.`message_translation` AS `message_translation`, `CRM_translatorMessages`.`message_plural_index` AS `message_plural_index` FROM `CRM_translatorMessages` WHERE `locale_id` = 'zh_CN' AND `message_domain` = 'default';
+
+   [add index] 
+   	   field name 
+		
+   [parse result]
+   		before：
+   		after：
+   SELECT `lt`.*, `ct`.`city` AS `city`, `pt`.`province` AS `province`, `dt`.`description` AS `district`, `lc`.`description` AS `locationCategory`, `lsc`.`description` AS `childLocationCategory`, count(ls.location_id) AS `ScreenInstalled`, `bc`.`CRM_userCompanyDetails_id` AS `CRM_userCompanyDetails_id` FROM `locations` AS `lt` LEFT JOIN `cityTable` AS `ct` ON `lt`.`cityTable_id` = `ct`.`id` LEFT JOIN `provinceTable` AS `pt` ON `ct`.`provinceTable_id` = `pt`.`id` LEFT JOIN `districtTable` AS `dt` ON `lt`.`district_id` = `dt`.`id` LEFT JOIN `locationCategories` AS `lc` ON `lt`.`locationCategories_id` = `lc`.`id` LEFT JOIN `locationSubCategories` AS `lsc` ON `lt`.`locationSubCategories_id` =`lsc`.`id` LEFT JOIN `LCDScreen` AS `ls` ON `lt`.`id` = `ls`.`location_id` RIGHT JOIN `locationBodyCorporate` AS `bc` ON `bc`.`CRM_userCompanyDetails_id` = 344 and `bc`.`id` = `lt`.`locationBodyCorporate_id` GROUP BY `lt`.`id`, `ls`.`location_id` ORDER BY `lt`.`id` DESC;
+   explain SELECT `main`.*, `com`.`companyName` AS `companyName`, `client`.`description` AS `description` FROM `CRM_userTable` AS `main` LEFT JOIN `CRM_userCompanyDetails` AS `com` ON `main`.`CRM_userCompanyDetails_id` = `com`.`id` LEFT JOIN `CRM_userClientType` AS `client` ON `client`.`id` = `main`.`CRM_userClientType_id` WHERE (main.id = 297 or (main.CRM_userCompanyDetails_id != 282 and main.CRM_userTableParent_id = 297 )
+                      or main.`CRM_userTableParent_id` in (select id from CRM_userTable where CRM_userTableParent_id = 297)) and main.disabled = 0 GROUP BY `main`.`CRM_userCompanyDetails_id`;
+   SELECT `main`.`day` AS `day`, `main`.`startTime` AS `startTime`, `main`.`LCDTimes_id` AS `LCDTimes_id`, `ls`.`id` AS `screenid`, `lt`.`description` AS `ltdescription`, `lt`.`id` AS `ltid` FROM `LCDTimesSaved` AS `main` INNER JOIN `LCDScreen` AS `ls` ON `ls`.`LCDTimes_id`=`main`.`LCDTimes_id` LEFT JOIN `LCDTimes` AS `lt` ON `lt`.`id`=`ls`.`LCDTimes_id` WHERE `ls`.`id` = '18' and `main`.`LCDTimes_id`=20 GROUP BY `day`;
+   explain SELECT `main`.`day` AS `day`, `main`.`startTime` AS `startTime`, `main`.`LCDTimes_id` AS `LCDTimes_id`, `ls`.`id` AS `screenid`, `lt`.`description` AS `ltdescription`, `lt`.`id` AS `ltid` FROM `LCDTimesSaved` AS `main` LEFT JOIN `LCDScreen` AS `ls` ON `ls`.`LCDTimes_id`=`main`.`LCDTimes_id` LEFT JOIN `LCDTimes` AS `lt` ON `lt`.`id`=`ls`.`LCDTimes_id` WHERE `ls`.`id` = '18' GROUP BY `day`;

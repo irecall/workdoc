@@ -1,0 +1,40 @@
+上周完成任务
+1.https://git.imonnetwork.com/#/c/28/ Solve client add smail screen dispaly question
+2.https://git.imonnetwork.com/#/c/31/ 在客户列表页面中， 有一列为client type客户类型列，通过选择不同类型显示不同内容。在大屏幕上没问题，为什么在小屏幕上面不好使呢？
+3、mariaDb 慢查询的开启，解决sql优化问题。
+4、locations list 显示权限问题，解决媒体公司不可见主体公司添加的点位，未完成。
+5、https://git.imonnetwork.com/#/c/35/  处理了一些问题。
+	1）Delete visibility:hidden attribute
+   	删除redfox中class 属性 visibility:hidden
+	2）Modify Locations Details and Locations Tags arrive Screen Details and Screen Tags
+  	 把点位详情和点位标签改成屏幕详情和屏幕标签
+	3）Modify Screen List the datatable when no data is error
+   	修改屏幕列表无数据时报错问题
+	4）Modify Locations List -> Screen Install,Chinese show dislocation
+   	修改点位列表中得 Screen Install 列，翻译成中文显示的样式问题
+
+
+本周计划
+1、继续完成locations list
+2、做数据库的索引优化，分析慢查询日志
+
+//权限控制
+		
+		$company = ($this->getAuthService()->getIdentity()->CRM_userRoles_id == 1 && $company_id == 1)?null:$this->getAuthService()->getIdentity()->CRM_userCompanyDetails_id;
+		var_dump($this->getAuthService()->getIdentity()->clientType->id );
+		if(!empty($company) && $this->getAuthService()->getIdentity()->clientType->id !=="13"){
+			$select->where(array('lt.CRM_userCompanyDetails_id'=>$company));
+		}else{
+			$select->join(array('bc'=>'locationBodyCorporate'),'bc.id = lt.locationBodyCorporate_id','CRM_userCompanyDetails_id',$select::JOIN_RIGHT);
+			$select->where("bc.CRM_userCompanyDetails_id = ".$company_id." and bc.id = lt.locationBodyCorporate_id");
+		}
+		$select->order('lt.id desc')->group('lt.id')->group('ls.location_id');
+		
+		$statement = $sql->prepareStatementForSqlObject($select);
+		$result = $statement->execute();
+
+
+
+/* location page add button only in firefox*/
+@-moz-document url-prefix(){.firefox{margin-top: -17px !important;}}
+@-moz-document url-prefix(){.screenListAddButton{min-width: 116px;}}

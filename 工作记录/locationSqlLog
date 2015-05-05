@@ -1,0 +1,21 @@
+locationSqlLog
+cityTable_id  关联城市id
+buildingName	建筑名称
+streetDetails	街道名称
+post Code		邮政编码
+locationCategories_id 位置分类id
+locationSubCategories_id 位置子类id
+district_id 区ID
+survey Rating 调查评级
+GPSlocation GPS定位信息
+tags 标签
+CRM_userCompanyDetails_id 用户公司id
+CRM_userTable_id 用户id
+locationPriceMonthly 每月价格
+locationBodyCorporate_id 位置法人团体
+
+
+select lt.*,ct.city,pt.province,dt.description as district,lc.description as locationCategory,lsc.description as childLocationCategory,count(ls.location_id) as ScreenInstalled from locations as lt left join `cityTable` as ct  ON lt.cityTable_id = ct.id left join`provinceTable` as pt ON ct.provinceTable_id = pt.id left join `districtTable` as dt on lt.`district_id` = dt.id left join `locationCategories` as lc on lt.locationCategories_id = lc.id left join locationSubCategories as lsc on lt.locationSubCategories_id =lsc.id left join `LCDScreen` as ls on lt.id = ls.location_id group by lt.id,ls.location_id
+
+
+<input type="text" name="screen_prices[description]" class="form-control" data-validate="required" data-type="price-description" value="">
